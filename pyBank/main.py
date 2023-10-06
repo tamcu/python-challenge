@@ -30,13 +30,17 @@ with open(csvpath, encoding= 'UTF-8') as my_file:
     # Calcualte the net total amount of "Profit/Losses" over the entire period
     total = sum(list_of_data)
 
+# Obtain the increases and decreases of the profits by obtaining max value, then relate them to the months to obtain the date
     max_value = max(profit)
     min_value = min(profit)
 
     max_month = profit.index(max(profit))
     min_month = profit.index(min(profit))
 
+# Calcualte the average change
     average = round(sum(profit)/len(profit),2)
+
+#Print the results 
 
 print("Financial Analysis")
 print("----------------------------")
@@ -46,6 +50,7 @@ print(f"Average Change: ${average}")
 print(f"Greatest Increase in Profits: {list_of_months[max_month]} (${(str(max_value))})")
 print(f"Greatest Decrease in Profits: {list_of_months[min_month]} (${(str(min_value))})")
 
+#Print the results and create txt file
 csvpath = os.path.join ('.','data1','budget_results.txt')
 with open("example.txt", "w") as file:
     file.write("Financial Analysis")
