@@ -4,7 +4,7 @@ import os
 
 csvpath = os.path.join ('.','data1','election_data.csv')
 
-# Create listts to hold the data
+# Create lists to hold the data and variables
 list_of_votes = []
 total_votes = 0
 candidates = {}
@@ -18,7 +18,7 @@ with open(csvpath, encoding= 'UTF-8') as my_file:
 
 # Read through each row of data after the header
     for row in csv_reader:
-        
+        # Iterate to add the votes of each candidate and add the total votes
         total_votes +=1
         if row[2] in candidates:
             candidates[row[2]] +=1
@@ -37,7 +37,7 @@ for key in candidates:
         winner = n
     percentage_candidates[key] = n
 
-
+#Print the results 
 print("Election Results")
 print("----------------------------")
 print(f'Total Votes: {print(total_votes)}')
@@ -49,6 +49,7 @@ print("----------------------------")
 print(f"Winner: {candidate_winner}")
 print("----------------------------")
 
+#Print the results and create txt file
 csvpath = os.path.join ('.','data1','election.txt')
 with open("election.txt", "w") as file:
     file.write("Election Results")
